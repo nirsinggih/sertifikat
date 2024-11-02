@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate Certificate</title>
+    <style>
+        /* Background gradien untuk tampilan lebih menarik */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #4f74a3, #9ac5f4); /* Gradien lembut */
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Efek lingkaran semi-transparan dengan animasi */
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.2);
+            pointer-events: none;
+            mix-blend-mode: overlay;
+            animation: move 10s infinite alternate ease-in-out;
+        }
+
+        /* Ukuran dan posisi lingkaran-lingkaran */
+        .circle:nth-child(1) {
+            width: 300px;
+            height: 300px;
+            top: 10%;
+            left: 20%;
+            animation-duration: 12s;
+        }
+
+        .circle:nth-child(2) {
+            width: 200px;
+            height: 200px;
+            bottom: 20%;
+            right: 15%;
+            animation-duration: 15s;
+        }
+
+        .circle:nth-child(3) {
+            width: 250px;
+            height: 250px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation-duration: 18s;
+        }
+
+        /* Animasi gerakan lambat */
+        @keyframes move {
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+            50% {
+                transform: translate(30px, -30px) scale(1.1);
+            }
+            100% {
+                transform: translate(-30px, 30px) scale(1);
+            }
+        }
+
+        /* Gaya untuk kontainer form */
+        .form-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 400px;
+            z-index: 1;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        /* Gaya untuk kotak informasi */
+        .info-box {
+            background-color: #e7f3fe;
+            color: #31708f;
+            border: 1px solid #bce8f1;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        label {
+            font-size: 16px;
+            color: #333;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            border: none;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #218838;
+        }
+
+        /* Gaya untuk bagian kontak WhatsApp */
+        .contact-info {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .contact-info a {
+            color: #28a745;
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsif untuk perangkat lebih kecil */
+        @media (max-width: 600px) {
+            .form-container {
+                padding: 15px;
+                width: 90%;
+            }
+
+            h2 {
+                font-size: 22px;
+            }
+
+            input[type="submit"] {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Elemen lingkaran efek latar belakang -->
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+
+    <div class="form-container">
+        <!-- Kotak Informasi -->
+        <div class="info-box">
+            <strong>Informasi:</strong> Pastikan anda telah mengisi daftar hadir dan mengumpulkan tugas.
+        </div>
+
+        <h2>Form Sertifikat</h2>
+        <form action="generate-seri-qr.php" method="post">
+            <label for="name">Nama Peserta:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="institution">Institusi:</label>
+            <input type="text" id="institution" name="institution" required>
+
+            <br><br>
+            <input type="submit" value="Dapatkan Sertifikat">
+        </form>
+
+        <!-- Bagian Kontak WhatsApp -->
+        <div class="contact-info">
+            Jika kesulitan, silakan hubungi <a href="https://wa.me/6281578049508" target="_blank">WhatsApp: Narahubung</a>.
+        </div>
+    </div>
+
+</body>
+
+</html>

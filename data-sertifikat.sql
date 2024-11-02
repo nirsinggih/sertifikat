@@ -1,0 +1,7 @@
+CREATE TABLE sertifikat (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    no_sertifikat INT NOT NULL UNIQUE,
+    nama VARCHAR(100) NOT NULL,
+    institusi VARCHAR(100) NOT NULL,
+    tanggal_terbit TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
